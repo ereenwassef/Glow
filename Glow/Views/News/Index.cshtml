@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Glow.Models.News>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Newsname_Ar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Newsname)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.NewsImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewsDisplay)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Newsname_Ar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Newsname)
+        </td>
+
+        <td>
+        
+            @if (item.NewsImage == null || item.NewsImage == " ")
+            {
+                <img id="user_img" height="100" width="100" src="/images/No-Image.png" />
+            }
+            else
+            {
+                <img id="user_img" height="100" width="100" src="@Url.Content(item.NewsImage)" />
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewsDisplay)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

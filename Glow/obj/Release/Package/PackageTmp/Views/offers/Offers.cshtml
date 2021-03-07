@@ -1,0 +1,68 @@
+﻿@*@model PagedList.IPagedList <Glow.Models.clasess>
+@using PagedList.Mvc;*@
+@model Glow.Models.offer
+
+@{
+    ViewBag.Title = "Offers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="hero-wrap" style="background-image: url('../images/bg_2.jpg'); " data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center pt-5 mt-md-5">
+                <h1 class="mb-3 bread">@Glow.Resources.HomeResource.Offers</h1>
+            </div>
+        </div>
+    </div>
+</section>
+@using (Html.BeginForm("Offers", "offers", FormMethod.Post))
+            {
+    <section class="ftco-section">
+        <div class="container-fluid px-4">
+            <div class="row">
+
+                @Html.Partial("_allOffers")
+                
+
+            </div>
+
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <div class="block-27">
+                        <ul>
+                    @for (int i = 1; i <= Model.PageCount; i++)
+                    {
+                        <li>
+                            @if (i != Model.CurrentPageIndex)
+                            {
+                                <a class="active" href="javascript:PagerClick(@i);">@i</a>
+                            }
+                            else
+                            {
+                                <span>@i</span>
+                             }
+
+                        </li>
+                    }
+
+
+                            @*<li><a href="#">&lt;</a></li>
+                            <li class="active">@Html.PagedListPager(Model, page => Url.Action("Classes","clasesses", new { page }))
+                            <li><a href="#">&gt;</a></li>*@
+                        </ul>
+
+                        </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <input type="hidden" id="hfCurrentPageIndex" name="currentPageIndex" />
+}
+<script type="text/javascript">
+    function PagerClick(index) {
+        document.getElementById("hfCurrentPageIndex").value = index;
+                document.forms[0].submit();
+            }
+</script>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Glow.Models.contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.con_address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Con_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Con_WhatsApp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Con_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.con_addressAR)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.con_address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Con_Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Con_WhatsApp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Con_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.con_addressAR)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.con_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.con_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.con_id })
+        </td>
+    </tr>
+}
+
+</table>

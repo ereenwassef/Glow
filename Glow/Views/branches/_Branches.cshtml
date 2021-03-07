@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Glow.Models.branch>
+
+
+<div class="row">
+
+
+
+@foreach (var item in Model)
+{
+        <div class="col-md-12 mb-3">
+        @if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+        {
+            <a href="javascript:void(0)" onclick="change_map('@Html.DisplayFor(m => item.Branch_location)">
+                <p style="font-size:14px; font-weight:bold; text-decoration:underline" ><span>@Glow.Resources.HomeResource.BranchName: </span>@Html.DisplayFor(m => item.Branch_nameAr)</p>
+               </a>
+
+        }
+        else
+        {
+            <a href="javascript:void(0)" onclick="change_map('@Html.DisplayFor(m => item.Branch_location)">
+
+                <p style="font-size:16px; font-weight:bold; text-decoration:underline"><span>@Glow.Resources.HomeResource.BranchName: </span>@Html.DisplayFor(m => item.Branch_name) </p>
+                </a>
+                }
+
+
+
+
+</div>
+    if (item.Branch_phone1 != null)
+    {
+        <div class="col-md-12 mb-3">
+            @if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+            {
+                <p style="font-size:14px"><span>@Glow.Resources.HomeResource.Phone: </span> <a href="@Html.DisplayFor(m => item.Branch_phone1) ">&#x200E;@Html.DisplayFor(m => item.Branch_phone1)</a></p>
+            }
+            else
+            {
+                <p><span>@Glow.Resources.HomeResource.Phone: </span> <a href="@Html.DisplayFor(m => item.Branch_phone1)">@Html.DisplayFor(m => item.Branch_phone1)</a></p>
+            }
+
+        </div>
+    }
+ 
+
+    if ( item.Branch_phone2 != null)
+    {
+        <div class="col-md-12 mb-3">
+            @if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+            {
+                <p style="font-size:14px"><span>@Glow.Resources.HomeResource.Phone: </span> <a href="@Html.DisplayFor(m => item.Branch_phone2)">&#x200E;@Html.DisplayFor(m => item.Branch_phone2) </a></p>
+            }
+            else
+            {
+                <p><span>@Glow.Resources.HomeResource.Phone: </span> <a href="@Html.DisplayFor(m => item.Branch_phone2) ">@ViewBag.Branch_phone2 </a></p>
+            }
+
+        </div>
+    }
+
+
+    if (item.Branch_phone3 != null)
+    {
+            <div class="col-md-12 mb-3">
+                @if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+                {
+                    <p style="font-size:14px"><span>@Glow.Resources.HomeResource.Phone: </span> <a href="@Html.DisplayFor(m => item.Branch_phone3) ">&#x200E;@Html.DisplayFor(m => item.Branch_phone3)  </a></p>
+                }
+                else
+                {
+                    <p><span>@Glow.Resources.HomeResource.Phone: </span> <a href="@Html.DisplayFor(m => item.Branch_phone3)  ">@Html.DisplayFor(m => item.Branch_phone3)  </a></p>
+                }
+
+            </div>
+    }
+    if (item.Branch_phone4 != null)
+    {
+            <div class="col-md-12 mb-3">
+                @if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+                {
+                    <p style="font-size:14px"><span> @Glow.Resources.HomeResource.Phone: </span> <a href="@Html.DisplayFor(m => item.Branch_phone4) ">&#x200E;@Html.DisplayFor(m => item.Branch_phone4) </a></p>
+                }
+                else
+                {
+                    <p><span>@Glow.Resources.HomeResource.Phone: </span> <a href="@Html.DisplayFor(m => item.Branch_phone4) ">@Html.DisplayFor(m => item.Branch_phone4) </a></p>
+                }
+
+            </div>
+
+        }
+
+
+
+        if (item.Branch_Whatsapp != null)
+        {
+        <div class="col-md-12 mb-3">
+    @if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+    {
+            <p style="font-size:14px"><span>واتس اب: </span> <a style="direction:ltr">&#x200E; @Html.DisplayFor(m => item.Branch_Whatsapp)</a></p>
+    }
+    else
+    {
+        <p><span>WhatsApp: </span> <a> @Html.DisplayFor(m => item.Branch_Whatsapp)</a></p>
+    }
+        </div>
+
+   
+}
+
+    }
+
+
+
+</div>
+

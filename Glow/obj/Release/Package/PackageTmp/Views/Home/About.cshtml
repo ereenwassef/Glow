@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "";
+}
+
+
+<section class="hero-wrap " style="background-image: url('../images/bg_2.jpg');"data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text  align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center pt-5 mt-md-5">
+                <p class="mb-3 bread">@Glow.Resources.HomeResource.About</p>
+                @*<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Contact</span></p>*@
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-about">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="img img-video d-flex align-items-center" style="background-image: url(../images/v2.jpg);">
+                    <div class="video justify-content-center">
+                        <a href="/images/v1.mp4" class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+
+                            <span class="ion-ios-play"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="thumb-wrap d-flex">
+                    <a href="../images/program-1.jpg" class="thumb img" style="background-image: url(../images/program-1.jpg);"></a>
+                    <a href="../images/program-2.jpg" class="thumb img" style="background-image: url(../images/program-2.jpg);"></a>
+                    <a href="../images/program-3.jpg" class="thumb img" style="background-image: url(../images/program-3.jpg);"></a>
+                </div>
+            </div>
+            <div class="col-md-6 pl-md-5 ftco-animate d-flex align-items-center">
+                <div class="text pt-4 pt-md-0">
+                    <div class="heading-section mb-4">
+                       
+                        <h2 class="mb-1">@(Glow.Resources.HomeResource.Welcometo) <span style="color:#e9ab32">GLow</span></h2>
+                    </div>
+                    <p style="text-align:justify ; justify-content:space-between ; font-size:14px;">
+                        @(Glow.Resources.HomeResource.txtabout)
+                    </p>
+                    <p><a href="#" onclick = "ShowPopup();" class="btn btn-primary p-3">@(Glow.Resources.HomeResource.Joinus)</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    ShowPopup = function () {
+        window.open('/Home/OpenPopup?param1=param1Value', "PopupWindow", 'width=600px,height=600px,top=150,left=250');
+    }
+</script>  

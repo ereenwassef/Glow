@@ -1,0 +1,34 @@
+﻿
+@*@model IEnumerable<Glow.Models.offer>*@
+@model Glow.Models.offer
+@foreach (var c in Model.offers)
+{
+    if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+    {
+<div class="col-md-6 col-lg-3">
+    <div class="package-program ftco-animate">
+        <a href="@Url.Action("OffersDetails","offers" ,new {id = c.id })" class="img d-flex justify-content-center align-items-center" style="background-image: url(@c.offerImage);">
+           
+        </a>
+        <div class="text mt-3">
+            <h3>@c.offername_Ar</h3>
+            <p>@c.offertitle_Ar</p>
+        </div>
+    </div>
+</div>
+    }
+    else
+    {
+        <div class="col-md-6 col-lg-3">
+            <div class="package-program ftco-animate">
+                <a href="@Url.Action("ClassDetails","clasesses" ,new {id = c.id })" class="img d-flex justify-content-center align-items-center" style="background-image: url(@c.offerImage);">
+                  
+                </a>
+                <div class="text mt-3">
+                    <h3>@c.offername</h3>
+                    <p>@c.offername</p>
+                </div>
+            </div>
+        </div>
+    }
+}

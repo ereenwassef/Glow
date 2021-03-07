@@ -1,0 +1,100 @@
+﻿
+
+@{
+    ViewBag.Title = "Account";
+  
+    var UserId = @Session["MembershipNo"].ToString();
+    var user = @Session["LogedUsers"].ToString();
+}
+
+<link rel="stylesheet" href="/Content/Taps/tap.css">
+
+<section class="hero-wrap" style="background-image: url('../images/bg_2.jpg'); height:150px; " data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center pt-5 mt-md-5">
+               @* <h1 class="mb-3 bread">My Account</h1> *@
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  
+
+  
+ <section id="wrapper" class="wrapper">
+
+    <h1 >Account</h1>
+
+    <div id="v-nav">
+
+        <ul>
+            <li tab="tab1" >Account Information</li>
+            <li tab="tab2">Membership Information</li>
+            <li tab="tab3">Fitness Profile</li> 
+            
+            <li tab="tab4" >Private Coach</li>
+            
+        </ul>
+
+        <div class="tab-content">
+            @Html.Action("info")
+        </div>
+        <div class="tab-content">
+            @Html.Action("MembershipInfo")
+        </div>
+       <div class="tab-content">
+        @Html.Action("FitnessProfiles")
+    </div> 
+
+        <div class="tab-content">
+            @Html.Action("PrivateComment")
+        </div>
+
+
+
+    </div>
+
+</section>
+
+<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+
+<script>
+
+    $(function () {
+        var items = $('#v-nav>ul>li').each(function () {
+            $(this).click(function () {
+                //remove previous class and add it to clicked tab
+                items.removeClass('current');
+                $(this).addClass('current');
+
+                //hide all content divs and show current one
+                $('#v-nav>div.tab-content').hide().eq(items.index($(this))).show('fast');
+
+                window.location.hash = $(this).attr('tab');
+            });
+        });
+
+        if (location.hash) {
+            showTab(location.hash);
+        }
+        else {
+            showTab("tab1");
+        }
+
+        function showTab(tab) {
+            $("#v-nav ul li:[tab*=" + tab + "]").click();
+        }
+
+        // Bind the event hashchange, using jquery-hashchange-plugin
+        $(window).hashchange(function () {
+            showTab(location.hash.replace("#", ""));
+        })
+
+        // Trigger the event hashchange on page load, using jquery-hashchange-plugin
+        $(window).hashchange();
+    });
+</script>

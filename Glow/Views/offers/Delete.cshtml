@@ -1,0 +1,92 @@
+﻿@model Glow.Models.offer
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+<link href="~/Content/css/style.css" rel="stylesheet" />
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>offer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.offername_Ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offername_Ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offertitle_Ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offertitle_Ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offertitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offertitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offercontent_Ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offercontent_Ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offercontent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offercontent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offerImage)
+        </dt>
+
+        <dd>
+            @if (Model.offerImage == null || Model.offerImage == " ")
+            {
+                 <img id="user_img" height="100" width="100" src="/images/No-Image.png" />
+
+
+            }
+            else
+            {
+                <img id="user_img" height="100" width="100" src="@Url.Content(Model.offerImage)" />
+              
+            }
+            
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

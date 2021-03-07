@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Glow.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Us_FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Us_LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Us_UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Us_Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Us_Mobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Us_Membership)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Us_Image)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Us_FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Us_LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Us_UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Us_Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Us_Mobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Us_Membership)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Us_Image)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Us_Membership }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Us_Membership }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Us_Membership })
+        </td>
+    </tr>
+}
+
+</table>

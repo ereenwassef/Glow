@@ -1,0 +1,49 @@
+﻿<environment include="Development">
+    @if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+    {
+        if (ViewBag.BMI <= 18)
+        {
+            <div style="text-align:center ; font-family:'B Arabic Style'"> <h3 style="color:#e9ab32"><span style="color:#000000"> كتلة الجسم :</span> @ViewBag.BMI <span style="color:#ff6a00"> نحيف </span></h3></div>
+        }
+        else if (ViewBag.BMI >= 18 && ViewBag.BMI <= 25)
+        {
+            <div style="text-align:center; font-family:'B Arabic Style'">  <h3 style="color:#e9ab32"><span style="color:#000000"> كتلة الجسم :</span> @ViewBag.BMI <span style="color:#ff6a00"> طبيعي</span></h3></div>
+        }
+        else if (ViewBag.BMI >= 25 && ViewBag.BMI <= 30)
+        {
+            <div style="text-align:center; font-family:'B Arabic Style'">  <h3 style="color:#e9ab32"><span style="color:#000000"> كتلة الجسم :</span> @ViewBag.BMI <span style="color:#ff6a00"> وزن زائد </span></h3></div>
+        }
+        else if (ViewBag.BMI >= 30 && ViewBag.BMI <= 35)
+        {
+            <div style="text-align:center; font-family:'B Arabic Style'">   <h3 style="color:#e9ab32"><span style="color:#000000"> كتلة الجسم :</span> @ViewBag.BMI <span style="color:#ff6a00">  سمين </span></h3></div>
+        }
+        else if (ViewBag.BMI >= 35 && ViewBag.BMI <= 40)
+        {
+            <div style="text-align:center; font-family:'B Arabic Style'">   <h3 style="color:#e9ab32"><span style="color:#000000"> كتلة الجسم :</span> @ViewBag.BMI <span style="color:#ff6a00">  سمنة مفرطة </span></h3></div>
+        }
+
+    }
+    else
+    {
+        if (ViewBag.BMI <= 18)
+        {
+            <div style="text-align:center "> <p style="color:#e9ab32"><span style="color:#fff">BMI : </span> @ViewBag.BMI <span style="text-decoration:underline ; color:#fff"> Under Weight </span></p></div>
+        }
+        else if (ViewBag.BMI >= 18 && ViewBag.BMI <= 25)
+        {
+            <div style="text-align:center "><p style="color:#e9ab32"><span style="color:#fff">BMI :</span> @ViewBag.BMI <span style="text-decoration:underline ; color:#fff"> Normal Weight </span></p></div>
+        }
+        else if (ViewBag.BMI >= 25 && ViewBag.BMI <= 30)
+        {
+            <div style="text-align:center "><p style="color:#e9ab32"><span style="color:#fff">BMI :</span> @ViewBag.BMI <span style="text-decoration:underline ; color:#fff"> Over Weight </span></p></div>
+        }
+        else if (ViewBag.BMI >= 30 && ViewBag.BMI <= 35)
+        {
+            <div style="text-align:center "><p style="color:#e9ab32"><span style="color:#fff">BMI :</span> @ViewBag.BMI <span style="text-decoration:underline ; color:#fff"> Obese</span></p></div>
+        }
+        else if (ViewBag.BMI >= 35 && ViewBag.BMI <= 40)
+        {
+            <div style="text-align:center "><p style="color:#e9ab32"><span style="color:#fff">BMI :</span> @ViewBag.BMI <span style="text-decoration:underline ; color:#fff"> Excessive Obesity</span></p></div>
+        }
+    }
+    </environment>

@@ -1,0 +1,101 @@
+﻿@model Glow.Models.News
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>News</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Newsname_Ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Newsname_Ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Newsname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Newsname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Newstitle_Ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Newstitle_Ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Newstitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Newstitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Newscontent_Ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Newscontent_Ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Newscontent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Newscontent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsImage)
+        </dt>
+
+        <dd>
+            @if (Model.NewsImage == null || Model.NewsImage == " ")
+            {
+                <img id="user_img" height="100" width="100" src="/images/No-Image.png" />
+
+
+            }
+            else
+            {
+                <img id="user_img" height="100" width="100" src="@Url.Content(Model.NewsImage)" />
+
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewsDisplay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewsDisplay)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

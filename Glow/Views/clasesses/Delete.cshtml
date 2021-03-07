@@ -1,0 +1,97 @@
+﻿@model Glow.Models.clasess
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>clasess</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Class_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class_Name_ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class_Name_ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class_title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class_title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class_title_ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class_title_ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class_Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class_Content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Class_Content_ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class_Content_ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLass_image)
+        </dt>
+
+        <dd>
+
+            @if (Model.CLass_image == null || Model.CLass_image == " ")
+            {
+                <img id="user_img" height="100" width="100" src="/images/No-Image.png" />
+            }
+            else
+            {
+                <img id="user_img" height="100" width="100" src="@Url.Content(Model.CLass_image)" />
+            }
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClassDisplay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassDisplay)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

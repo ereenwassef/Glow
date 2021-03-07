@@ -1,0 +1,80 @@
+﻿@model Glow.Models.Sendmail
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="hero-wrap" style="background-image: url('../images/bg_2.jpg');"data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center pt-5 mt-md-5">
+                <h1 class="mb-3 bread">@Glow.Resources.HomeResource.Contact</h1>
+                @*<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Contact</span></p>*@
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section contact-section">
+    <div class="container">
+        <div class="row block-9">
+            <div class="col-md-4 contact-info ftco-animate bg-light p-4">
+
+
+
+
+                @Html.Action("contacts_US")
+
+
+
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-6 ftco-animate">
+@using (Html.BeginForm("send", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{     
+        @Html.AntiForgeryToken()
+                <form action="" class="contact-form" method="post" role="form" id="formm">
+              
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @*<input type="text" class="form-control" placeholder="@Glow.Resources.HomeResource.Name">*@
+                                @Html.EditorFor(model => model.Fullname, new { htmlAttributes = new { @class = "form-control", placeholder = @Glow.Resources.HomeResource.Name , required = "required" } })
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                @*<input type="text" class="form-control" placeholder="@Glow.Resources.HomeResource.Email">*@
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = @Glow.Resources.HomeResource.Email, required = "required" } })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @*<input type="text" class="form-control" placeholder="@Glow.Resources.HomeResource.Subject">*@
+                        @Html.EditorFor(model => model.MobilNo, new { htmlAttributes = new { @class = "form-control", placeholder = @Glow.Resources.HomeResource.Phone, required = "required" } })
+                    </div>
+
+                    <div class="form-group">
+                        @*<input type="text" class="form-control" placeholder="@Glow.Resources.HomeResource.Subject">*@
+                        @Html.EditorFor(model => model.subject, new { htmlAttributes = new { @class = "form-control", placeholder = @Glow.Resources.HomeResource.Subject, required = "required" } })
+                    </div>
+                    <div class="form-group">
+                        @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control", placeholder = @Glow.Resources.HomeResource.Message, required = "required" } })
+                        @*<textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="@Glow.Resources.HomeResource.Message"></textarea>*@
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="@Glow.Resources.HomeResource.SendMessage" class="btn btn-primary py-3 px-5">
+                    </div>
+                </form>
+}
+
+            </div>
+        </div>
+    </div>
+</section>
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3455.291569399274!2d31.172659314592533!3d29.99978322763718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14584679bbbabf29%3A0x7d02538f0425eb8d!2sGlow%20Gym!5e0!3m2!1sen!2seg!4v1602275840573!5m2!1sen!2seg" frameborder="0" height="450" style="border:0 ; width:100% ;" allowfullscreen="true" aria-hidden="false" tabindex="0"></iframe>
+</div>

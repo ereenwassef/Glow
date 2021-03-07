@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="glowModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="clasess">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Class_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Class_Name_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Class_title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Class_title_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Class_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Class_Content_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CLass_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClassDisplay" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="glowEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="clasesses" EntityType="Self.clasess" />
+    <EntitySet Name="offers" EntityType="glowModel.offer" />
+    <EntitySet Name="News" EntityType="glowModel.News" />
+    <EntitySet Name="Accounts" EntityType="glowModel.Account" />
+    <EntitySet Name="Roles" EntityType="glowModel.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="glowModel.sysdiagram" />
+    <AssociationSet Name="FK_Account_Roles" Association="glowModel.FK_Account_Roles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Account" EntitySet="Accounts" />
+    </AssociationSet>
+    <EntitySet Name="tbl_Users" EntityType="glowModel.tbl_Users" />
+    <EntitySet Name="SLideshows" EntityType="glowModel.SLideshow" />
+  </EntityContainer>
+  <EntityType Name="offer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="offername_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offertitle_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offertitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offercontent_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offercontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offerImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offerDisplay" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Newsname_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Newsname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Newstitle_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Newstitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Newscontent_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Newscontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NewsImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NewsDate" Type="DateTime" Precision="3" />
+    <Property Name="NewsDisplay" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Acc_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Acc_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Acc_Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Acc_Role" Type="Int32" />
+    <Property Name="Acc_Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Role" Relationship="glowModel.FK_Account_Roles" FromRole="Account" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Accounts" Relationship="glowModel.FK_Account_Roles" FromRole="Role" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Account_Roles">
+    <End Type="glowModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="glowModel.Account" Role="Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="Acc_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SLideshow">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="slide_Txt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_Txt_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_Slogin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_Slogin_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_Content_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SlideDisplay" Type="Boolean" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Glow.Models.clasess>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Class_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Class_Name_ar)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.CLass_image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassDisplay)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Class_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Class_Name_ar)
+        </td>
+
+        <td>
+            @if (item.CLass_image == null || item.CLass_image == " ")
+            {
+                <img id="user_img" height="100" width="100" src="/images/No-Image.png" />
+            }
+            else
+            {
+                <img id="user_img" height="100" width="100" src="@Url.Content(item.CLass_image)" />
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassDisplay)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

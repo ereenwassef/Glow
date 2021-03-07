@@ -1,0 +1,84 @@
+﻿@model Glow.Models.offer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>offer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.offername_Ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offername_Ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offertitle_Ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offertitle_Ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offertitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offertitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offercontent_Ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offercontent_Ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offercontent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.offercontent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.offerImage)
+        </dt>
+
+        <dd>
+            @if (Model.offerImage == null || Model.offerImage == " ")
+            {
+                <img id="user_img" height="100" width="100" src="/images/No-Image.png" />
+            }
+            else
+            {
+                <img id="user_img" height="100" width="100" src="@Url.Content(Model.offerImage)" />
+            }
+
+         
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

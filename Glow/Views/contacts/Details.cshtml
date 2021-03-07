@@ -1,0 +1,59 @@
+﻿@model Glow.Models.contact
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.con_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.con_address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Con_Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Con_Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Con_WhatsApp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Con_WhatsApp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Con_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Con_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.con_addressAR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.con_addressAR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.con_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

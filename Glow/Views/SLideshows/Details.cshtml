@@ -1,0 +1,89 @@
+﻿@model Glow.Models.SLideshow
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+<link href="~/Content/css/style.css" rel="stylesheet" />
+<h2>Details</h2>
+
+<div>
+    <h4>SLideshow</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.slide_Txt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.slide_Txt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.slide_Txt_ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.slide_Txt_ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.slide_Content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.slide_Content)
+        </dd>
+
+       
+         <dt>
+             @Html.DisplayNameFor(model => model.slide_Content_ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.slide_Content_ar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.slide_Slogin)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.slide_Slogin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.slide_Slogin_ar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.slide_Slogin_ar)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.slide_Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.slide_Url)
+        </dd>
+        <dd>
+            @Html.DisplayNameFor(model => model.slide_image)
+        </dd>
+
+        <dt>
+            @if (Model.slide_image == null || Model.slide_image == " ")
+            {
+                <img id="user_img" height="100" width="100" src="url()" />
+            }
+            else
+            {
+                <img id="user_img" height="100" width="100" src="@Url.Content(Model.slide_image)" />
+            }
+        
+        </dt>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

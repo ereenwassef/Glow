@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="glowModelStoreContainer" CdmEntityContainer="glowEntities">
+    <EntitySetMapping Name="clasesses">
+      <EntityTypeMapping TypeName="glowModel.clasess">
+        <MappingFragment StoreEntitySet="clasess">
+          <ScalarProperty Name="ClassDisplay" ColumnName="ClassDisplay" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Class_Name" ColumnName="Class_Name" />
+          <ScalarProperty Name="Class_Name_ar" ColumnName="Class_Name_ar" />
+          <ScalarProperty Name="Class_title" ColumnName="Class_title" />
+          <ScalarProperty Name="Class_title_ar" ColumnName="Class_title_ar" />
+          <ScalarProperty Name="Class_Content" ColumnName="Class_Content" />
+          <ScalarProperty Name="Class_Content_ar" ColumnName="Class_Content_ar" />
+          <ScalarProperty Name="CLass_image" ColumnName="CLass_image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="offers">
+      <EntityTypeMapping TypeName="glowModel.offer">
+        <MappingFragment StoreEntitySet="offers">
+          <ScalarProperty Name="offerDisplay" ColumnName="offerDisplay" />
+          <ScalarProperty Name="offerImage" ColumnName="offerImage" />
+          <ScalarProperty Name="offercontent" ColumnName="offercontent" />
+          <ScalarProperty Name="offercontent_Ar" ColumnName="offercontent_Ar" />
+          <ScalarProperty Name="offertitle" ColumnName="offertitle" />
+          <ScalarProperty Name="offertitle_Ar" ColumnName="offertitle_Ar" />
+          <ScalarProperty Name="offername" ColumnName="offername" />
+          <ScalarProperty Name="offername_Ar" ColumnName="offername_Ar" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="glowModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="NewsDisplay" ColumnName="NewsDisplay" />
+          <ScalarProperty Name="NewsDate" ColumnName="NewsDate" />
+          <ScalarProperty Name="NewsImage" ColumnName="NewsImage" />
+          <ScalarProperty Name="Newscontent" ColumnName="Newscontent" />
+          <ScalarProperty Name="Newscontent_Ar" ColumnName="Newscontent_Ar" />
+          <ScalarProperty Name="Newstitle" ColumnName="Newstitle" />
+          <ScalarProperty Name="Newstitle_Ar" ColumnName="Newstitle_Ar" />
+          <ScalarProperty Name="Newsname" ColumnName="Newsname" />
+          <ScalarProperty Name="Newsname_Ar" ColumnName="Newsname_Ar" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="glowModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="Acc_Mobile" ColumnName="Acc_Mobile" />
+          <ScalarProperty Name="Acc_Role" ColumnName="Acc_Role" />
+          <ScalarProperty Name="Acc_Password" ColumnName="Acc_Password" />
+          <ScalarProperty Name="Acc_Email" ColumnName="Acc_Email" />
+          <ScalarProperty Name="Acc_Name" ColumnName="Acc_Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="glowModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="glowModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Users">
+      <EntityTypeMapping TypeName="glowModel.tbl_Users">
+        <MappingFragment StoreEntitySet="tbl_Users">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SLideshows">
+      <EntityTypeMapping TypeName="glowModel.SLideshow">
+        <MappingFragment StoreEntitySet="SLideshow">
+          <ScalarProperty Name="SlideDisplay" ColumnName="SlideDisplay" />
+          <ScalarProperty Name="slide_image" ColumnName="slide_image" />
+          <ScalarProperty Name="slide_Url" ColumnName="slide_Url" />
+          <ScalarProperty Name="slide_Content_ar" ColumnName="slide_Content_ar" />
+          <ScalarProperty Name="slide_Content" ColumnName="slide_Content" />
+          <ScalarProperty Name="slide_Slogin_ar" ColumnName="slide_Slogin_ar" />
+          <ScalarProperty Name="slide_Slogin" ColumnName="slide_Slogin" />
+          <ScalarProperty Name="slide_Txt_ar" ColumnName="slide_Txt_ar" />
+          <ScalarProperty Name="slide_Txt" ColumnName="slide_Txt" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Captions">
+      <EntityTypeMapping TypeName="glowModel.Caption">
+        <MappingFragment StoreEntitySet="Caption">
+          <ScalarProperty Name="Cap_Name" ColumnName="Cap_Name" />
+          <ScalarProperty Name="Cap_ID" ColumnName="Cap_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FitnessProfiles">
+      <EntityTypeMapping TypeName="glowModel.FitnessProfile">
+        <MappingFragment StoreEntitySet="FitnessProfile">
+          <ScalarProperty Name="MemberShipNo" ColumnName="MemberShipNo" />
+          <ScalarProperty Name="Us_ID" ColumnName="Us_ID" />
+          <ScalarProperty Name="FP_ID" ColumnName="FP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Infoes">
+      <EntityTypeMapping TypeName="glowModel.Info">
+        <MappingFragment StoreEntitySet="Info">
+          <ScalarProperty Name="Inf_Finished" ColumnName="Inf_Finished" />
+          <ScalarProperty Name="Inf_Cancel" ColumnName="Inf_Cancel" />
+          <ScalarProperty Name="Inf_FrezzDay" ColumnName="Inf_FrezzDay" />
+          <ScalarProperty Name="Inf_CaptionName" ColumnName="Inf_CaptionName" />
+          <ScalarProperty Name="Inf_Enddate" ColumnName="Inf_Enddate" />
+          <ScalarProperty Name="Inf_Startdate" ColumnName="Inf_Startdate" />
+          <ScalarProperty Name="Inf_MembershipNo" ColumnName="Inf_MembershipNo" />
+          <ScalarProperty Name="Inf_ID" ColumnName="Inf_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Players">
+      <EntityTypeMapping TypeName="glowModel.Player">
+        <MappingFragment StoreEntitySet="Player">
+          <ScalarProperty Name="PL_Mobile" ColumnName="PL_Mobile" />
+          <ScalarProperty Name="PL_Membership" ColumnName="PL_Membership" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrivateComments">
+      <EntityTypeMapping TypeName="glowModel.PrivateComment">
+        <MappingFragment StoreEntitySet="PrivateComments">
+          <ScalarProperty Name="PC_MembershipNo" ColumnName="PC_MembershipNo" />
+          <ScalarProperty Name="PC_Comment" ColumnName="PC_Comment" />
+          <ScalarProperty Name="PC_CapID" ColumnName="PC_CapID" />
+          <ScalarProperty Name="PC_ID" ColumnName="PC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="glowModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Us_Image" ColumnName="Us_Image" />
+          <ScalarProperty Name="Us_Mobile" ColumnName="Us_Mobile" />
+          <ScalarProperty Name="Us_Password" ColumnName="Us_Password" />
+          <ScalarProperty Name="Us_UserName" ColumnName="Us_UserName" />
+          <ScalarProperty Name="Us_LastName" ColumnName="Us_LastName" />
+          <ScalarProperty Name="Us_FirstName" ColumnName="Us_FirstName" />
+          <ScalarProperty Name="Us_Membership" ColumnName="Us_Membership" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contacts">
+      <EntityTypeMapping TypeName="glowModel.contact">
+        <MappingFragment StoreEntitySet="contact">
+          <ScalarProperty Name="con_addressAR" ColumnName="con_addressAR" />
+          <ScalarProperty Name="Con_Email" ColumnName="Con_Email" />
+          <ScalarProperty Name="Con_WhatsApp" ColumnName="Con_WhatsApp" />
+          <ScalarProperty Name="Con_Phone" ColumnName="Con_Phone" />
+          <ScalarProperty Name="con_address" ColumnName="con_address" />
+          <ScalarProperty Name="con_id" ColumnName="con_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="branches">
+      <EntityTypeMapping TypeName="glowModel.branch">
+        <MappingFragment StoreEntitySet="branches">
+          <ScalarProperty Name="Branch_Email" ColumnName="Branch_Email" />
+          <ScalarProperty Name="Branch_Whatsapp" ColumnName="Branch_Whatsapp" />
+          <ScalarProperty Name="Branch_phone4" ColumnName="Branch_phone4" />
+          <ScalarProperty Name="Branch_phone3" ColumnName="Branch_phone3" />
+          <ScalarProperty Name="Branch_phone2" ColumnName="Branch_phone2" />
+          <ScalarProperty Name="Branch_phone1" ColumnName="Branch_phone1" />
+          <ScalarProperty Name="Branch_nameAr" ColumnName="Branch_nameAr" />
+          <ScalarProperty Name="Branch_location" ColumnName="Branch_location" />
+          <ScalarProperty Name="Branch_name" ColumnName="Branch_name" />
+          <ScalarProperty Name="Branch_id" ColumnName="Branch_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

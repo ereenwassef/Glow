@@ -1,0 +1,128 @@
+﻿@model Glow.Models.User  
+
+
+@using (Html.BeginForm("LoginUser", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()          // this is for prevent CSRF attack
+
+
+    <!--Modal: Login / Register Form-->
+                                    <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog"
+                                         aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog cascading-modal" role="document">
+                                            <!--Content-->
+                                            <div class="modal-content">
+
+                                                <!--Modal cascading tabs-->
+                                                <div class="modal-c-tabs">
+
+                                                    <!-- Nav tabs -->
+                                                    <ul class="nav nav-tabs md-tabs tabs-2 light-blue darken-3" role="tablist">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link active" data-toggle="tab" href="#panel7" role="tab">
+                                                                <i class="fas fa-user mr-1"></i>
+                                                                Login
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-toggle="tab" href="#panel8" role="tab">
+                                                                <i class="fas fa-user-plus mr-1"></i>
+                                                                Register
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+
+                                                    <!-- Tab panels -->
+                                                    <div class="tab-content">
+                                                        <!--Panel 7-->
+                                                        <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+                                                            <!--Body-->
+                                                            <div class="modal-body mb-1">
+                                                                <div class="md-form form-sm mb-5">
+                                                                    <i class="fas fa-envelope prefix"></i>
+                                                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Username is reauired">
+                                                                        <span class="label-input100">Username</span>
+                                                                        @Html.TextBoxFor(a => a.Us_UserName, new { @class = "input100", placeholder = "Type your UserName", required = "required" })
+                                                                        @*  <input class="input100" type="text" name="username" placeholder="Type your username">*@
+                                                                        <span class="focus-input100" data-symbol="&#xf206;"></span>
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <div class="md-form form-sm mb-4">
+                                                                    <i class="fas fa-lock prefix"></i>
+                                                                    <div class="wrap-input100 validate-input m-b-23" data-validate="Password is required">
+                                                                        <span class="label-input100">Password</span>
+                                                                           @Html.PasswordFor(a => a.Us_Password, new { @class = "input100", placeholder = "Type your Password", required = "required" })
+                                                                        
+                                                                        <span class="focus-input100" data-symbol="&#xf190;"></span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="container-login100-form-btn">
+                                                                    <div class="wrap-login100-form-btn">
+                                                                        <div class="login100-form-bgbtn"></div>
+                                                                        <button type="submit" class="login100-form-btn">
+                                                                            Login
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--Footer-->
+                                                            <div class="modal-footer">
+                                                                <div class="options text-center text-md-right mt-1">
+                                                                    <p>Not a member? <a href="#" class="blue-text">Sign Up</a></p>
+                                                                    <p>Forgot <a href="#" class="blue-text">Password?</a></p>
+                                                                </div>
+                                                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                                                            </div>
+
+                                                        </div>
+                                                        <!--/.Panel 7-->
+                                                        <!--Panel 8-->
+                                                        <div class="tab-pane fade" id="panel8" role="tabpanel">
+
+                                                            <!--Body-->
+                                                            <div class="modal-body">
+                                                                <div class="md-form form-sm mb-5">
+                                                                    <i class="fas fa-envelope prefix"></i>
+                                                                    <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                                                    <label data-error="wrong" data-success="right" for="modalLRInput12">Your email</label>
+                                                                </div>
+
+                                                                <div class="md-form form-sm mb-5">
+                                                                    <i class="fas fa-lock prefix"></i>
+                                                                    <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                                                                    <label data-error="wrong" data-success="right" for="modalLRInput13">Your password</label>
+                                                                </div>
+
+                                                                <div class="md-form form-sm mb-4">
+                                                                    <i class="fas fa-lock prefix"></i>
+                                                                    <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                                                                    <label data-error="wrong" data-success="right" for="modalLRInput14">Repeat password</label>
+                                                                </div>
+
+                                                                <div class="text-center form-sm mt-2">
+                                                                    <button class="btn btn-info">Sign up <i class="fas fa-sign-in ml-1"></i></button>
+                                                                </div>
+
+                                                            </div>
+                                                            <!--Footer-->
+                                                            <div class="modal-footer">
+                                                                <div class="options text-right">
+                                                                    <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
+                                                                </div>
+                                                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                        <!--/.Panel 8-->
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <!--/.Content-->
+                                        </div>
+                                    </div>
+    <!--Modal: Login / Register Form-->
+
+}

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="glowModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Acc_Name" Type="nvarchar(max)" />
+    <Property Name="Acc_Email" Type="nvarchar(max)" />
+    <Property Name="Acc_Password" Type="nvarchar(max)" />
+    <Property Name="Acc_Role" Type="int" />
+    <Property Name="Acc_Mobile" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="clasess">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Class_Name" Type="nvarchar(max)" />
+    <Property Name="Class_Name_ar" Type="nvarchar(max)" />
+    <Property Name="Class_title" Type="nvarchar(max)" />
+    <Property Name="Class_title_ar" Type="nvarchar(max)" />
+    <Property Name="Class_Content" Type="nvarchar(max)" />
+    <Property Name="Class_Content_ar" Type="nvarchar(max)" />
+    <Property Name="CLass_image" Type="nvarchar(max)" />
+    <Property Name="ClassDisplay" Type="bit" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Newsname_Ar" Type="nvarchar(max)" />
+    <Property Name="Newsname" Type="nvarchar(max)" />
+    <Property Name="Newstitle_Ar" Type="nvarchar(max)" />
+    <Property Name="Newstitle" Type="nvarchar(max)" />
+    <Property Name="Newscontent_Ar" Type="nvarchar(max)" />
+    <Property Name="Newscontent" Type="nvarchar(max)" />
+    <Property Name="NewsImage" Type="nvarchar(max)" />
+    <Property Name="NewsDate" Type="datetime" />
+    <Property Name="NewsDisplay" Type="bit" />
+  </EntityType>
+  <EntityType Name="offers">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="offername_Ar" Type="nvarchar(max)" />
+    <Property Name="offername" Type="nvarchar(max)" />
+    <Property Name="offertitle_Ar" Type="nvarchar(max)" />
+    <Property Name="offertitle" Type="nvarchar(max)" />
+    <Property Name="offercontent_Ar" Type="nvarchar(max)" />
+    <Property Name="offercontent" Type="nvarchar(max)" />
+    <Property Name="offerImage" Type="nvarchar(max)" />
+    <Property Name="offerDisplay" Type="bit" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role_Name" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SLideshow">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="slide_Txt" Type="nvarchar(max)" />
+    <Property Name="slide_Txt_ar" Type="nvarchar(max)" />
+    <Property Name="slide_Slogin" Type="nvarchar(max)" />
+    <Property Name="slide_Slogin_ar" Type="nvarchar(max)" />
+    <Property Name="slide_Content" Type="nvarchar(max)" />
+    <Property Name="slide_Content_ar" Type="nvarchar(max)" />
+    <Property Name="slide_Url" Type="nvarchar(max)" />
+    <Property Name="slide_image" Type="nvarchar(max)" />
+    <Property Name="SlideDisplay" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Photo" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Account_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+    <End Role="Account" Type="Self.Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="Acc_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="glowModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="clasess" EntityType="Self.clasess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="offers" EntityType="Self.offers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SLideshow" EntityType="Self.SLideshow" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Users" EntityType="Self.tbl_Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Account_Roles" Association="Self.FK_Account_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Account" EntitySet="Account" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
