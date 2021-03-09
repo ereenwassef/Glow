@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Glow.Models.News>
+
+@foreach (var item in Model)
+{
+    if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+    {
+
+        <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry justify-content-end">
+                <a href="@Url.Action("NewsDetails","News" ,new {id = item.id })" class="block-20" style="background-image: url(@item.NewsImage);height:200px;">
+                </a>
+                <div class="text p-4 float-right d-block">
+                    <div class="meta">
+                        <div><a href="@Url.Action("NewsDetails","News" ,new {id = item.id })">@item.NewsDate</a></div>
+                    </div>
+                    <p class="heading mt-2"><a href="@Url.Action("NewsDetails","News" ,new {id = item.id })">@item.Newsname_Ar</a></p>
+                    <p>@item.Newstitle_Ar.Substring(0, 65)</p>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-4 d-flex ftco-animate">
+            <div class="blog-entry justify-content-end">
+                <a href="@Url.Action("NewsDetails","News" ,new {id = item.id })" class="block-20" style="background-image: url(@item.NewsImage);height:200px">
+                </a>
+                <div class="text p-4 float-right d-block">
+                    <div class="meta">
+                        <div><a href="@Url.Action("NewsDetails","News" ,new {id = item.id })">@item.NewsDate</a></div>
+                    </div>
+                    <h3 class="heading mt-2"><a href="@Url.Action("NewsDetails","News" ,new {id = item.id })">@item.Newsname</a></h3>
+                    <p>@item.Newstitle.Substring(0, 50)</p>
+                </div>
+            </div>
+        </div>
+    }
+
+
+}
+

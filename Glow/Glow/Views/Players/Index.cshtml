@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Glow.Models.Player>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+   
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Create New", "Create")
+<br />
+@using (Html.BeginForm("Index", "Players",FormMethod.Get))
+{
+    <b>Search By:</b> @Html.RadioButton("SearchBy","MembershipNo",true) <text>Membership No</text>
+    @Html.RadioButton("SearchBy", "Mobile", true) <text>Mobile No</text>
+    <br/>
+    @Html.TextBox("Search") 
+    <input type="submit" value="Search" />
+}
+
+
+@if (Model.Count() == 0)
+{
+    <p>
+        Membership Not Found @Html.ActionLink("Create New", "Create")
+    </p>
+
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PL_Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PL_Membership)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PL_Mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PL_Membership)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PL_Membership }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PL_Membership }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PL_Membership })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+
+
+
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+       $("#txtSearch").autocomplete({
+
+            source: '@Url.Action("GetPlayers", "Players")',
+
+            minLength: 1
+
+        });
+    });
+
+</script>

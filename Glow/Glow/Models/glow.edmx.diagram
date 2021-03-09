@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e5aa28e190c34981bb71d92f9b54f024" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="glowModel.clasess" Width="1.5" PointX="2.375" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="glowModel.offer" Width="1.5" PointX="5.625" PointY="3.625" />
+        <EntityTypeShape EntityType="glowModel.News" Width="1.5" PointX="4" PointY="3.625" />
+        <EntityTypeShape EntityType="glowModel.Account" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="glowModel.Role" Width="1.5" PointX="4" PointY="0.875" />
+        <EntityTypeShape EntityType="glowModel.sysdiagram" Width="1.5" PointX="5.625" PointY="0.75" />
+        <AssociationConnector Association="glowModel.FK_Account_Roles" />
+        <EntityTypeShape EntityType="glowModel.tbl_Users" Width="1.5" PointX="2.375" PointY="0.875" />
+        <EntityTypeShape EntityType="glowModel.SLideshow" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="glowModel.Caption" Width="1.5" PointX="2.375" PointY="11.125" />
+        <EntityTypeShape EntityType="glowModel.FitnessProfile" Width="1.5" PointX="7.375" PointY="9" />
+        <EntityTypeShape EntityType="glowModel.Info" Width="1.5" PointX="2.625" PointY="7" />
+        <EntityTypeShape EntityType="glowModel.Player" Width="1.5" PointX="0.5" PointY="7" />
+        <EntityTypeShape EntityType="glowModel.PrivateComment" Width="1.5" PointX="4.875" PointY="10.625" />
+        <EntityTypeShape EntityType="glowModel.User" Width="1.5" PointX="5" PointY="7" />
+        <AssociationConnector Association="glowModel.FK_PrivateComments_Caption" />
+        <AssociationConnector Association="glowModel.FK_FitnessProfile_Users" />
+        <AssociationConnector Association="glowModel.FK_Info_Player" />
+        <AssociationConnector Association="glowModel.FK_PrivateComments_Users" />
+        <EntityTypeShape EntityType="glowModel.contact" Width="1.5" PointX="7.375" PointY="0.875" />
+        <EntityTypeShape EntityType="glowModel.branch" Width="1.5" PointX="8.375" PointY="4.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

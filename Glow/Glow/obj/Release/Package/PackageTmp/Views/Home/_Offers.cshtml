@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Glow.Models.offer>
+
+@foreach (var item in Model)
+{
+    if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+    {
+       
+
+            <div class="item">
+                
+                    <div class="testimony-wrap p-offers pb-5">
+                        <a class="testimony-wrap" href="@Url.Action("OffersDetails","offers" ,new {id = item.id })">
+                            <div class="text">
+                                <div class="d-flex align-items-center">
+                                    @if (item.offerImage == null || item.offerImage == " ")
+                                    {
+                                        <div class="user-img" style="background-image: url(/images/No-Image.png)">
+
+                                            <span class="quote d-flex align-items-center justify-content-center">
+                                                <i class="icon-percent"></i>
+                                            </span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="user-img" style="background-image:url(@item.offerImage)">
+
+                                            <span class="quote d-flex align-items-center justify-content-center">
+                                                <i class="icon-percent"></i>
+                                            </span>
+                                        </div>
+                                    }
+
+                                    <div class="ml-4">
+                                        <p class="name">@item.offername_Ar </p>
+                                        @*<span class="position">Customer</span>*@
+                                    </div>
+                                </div>
+                                <p class="mb-4 pb-1 pl-4 line">@item.offertitle_Ar.Substring(0,65)</p>
+
+                            </div>
+                        </a>  
+</div>
+     
+</div>
+        
+    }
+    else
+    {
+       
+
+            <div class="item">
+                
+                    <div class="testimony-wrap p-offers pb-5">
+                        <a class="testimony-wrap" href="@Url.Action("OffersDetails","offers" ,new {id = item.id })">
+                            <div class="text">
+                                <div class="d-flex align-items-center">
+                                    @if (item.offerImage == null || item.offerImage == "")
+                                    {
+                                        <div class="user-img" style="background-image: url(/images/No-Image.png)">
+
+                                            <span class="quote d-flex align-items-center justify-content-center">
+                                                <i class="icon-percent"></i>
+                                            </span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="user-img" style="background-image:url(@item.offerImage)">
+                                            <span class="quote d-flex align-items-center justify-content-center">
+                                                <i class="icon-percent"></i>
+                                            </span>
+                                        </div>
+                                    }
+                                    <div class="ml-4">
+                                        <p class="name">@item.offername </p>
+                                        @*<span class="position">Customer</span>*@
+                                    </div>
+                                </div>
+                                <p class="mb-4 pb-1 pl-4 line">@item.offertitle.Substring(0, 105)</p>
+
+                            </div>
+                        </a> 
+</div>
+               
+</div>
+                  }
+            }

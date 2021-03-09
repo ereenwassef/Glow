@@ -1,0 +1,10 @@
+1- add [AllowHtml] in model 
+2- add [ValidateAntiForgeryToken] in controler 
+inside view you want to add rich editor 
+3- add @Html.TextAreaFor(m => m.Newscontent, new { rows = "20", style = "resize:none;width:400px;", placeholder = Html.DisplayNameFor(m => m.Newscontent), @class = "form-control input-lg textarea-editor" })
+
+rather than EditorFor
+inside view display for customer 
+4-add  @Html.Raw(Model.Newscontent.Replace("\r\n", "<br />")
+rather than  @Html.DisplayFor
+

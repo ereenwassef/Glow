@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Glow.Models.SLideshow>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.slide_Txt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.slide_Txt_ar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.slide_Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.slide_Content_ar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.slide_Slogin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.slide_Slogin_ar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.slide_Url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.slide_image)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.slide_Txt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.slide_Txt_ar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.slide_Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.slide_Content_ar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.slide_Slogin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.slide_Slogin_ar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.slide_Url)
+        </td>
+        <td>
+            @if (item.slide_image == null || item.slide_image == " ")
+            {
+                <img id="user_img" height="100" width="100" src="url()" />
+            }
+            else
+            {
+                <img id="user_img" height="100" width="100" src="@Url.Content(item.slide_image)" />
+            }
+          
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

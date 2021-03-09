@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Glow.Models.News>
+
+@foreach (var item in Model)
+{
+    if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+    {
+
+<div class="block-21 mb-4 d-flex">
+    <a class="blog-img mr-4" style="background-image: url(@item.NewsImage);"></a>
+    <div class="text">
+        <h3 class="heading" style="padding-right:10px"><a href="#">@item.Newstitle_Ar</a></h3>
+        <div class="meta">
+            <div><a href="#"><span class="icon-calendar"></span> @item.NewsDate</a></div>
+
+        </div>
+    </div>
+</div>
+    }
+    else
+    {
+        <div class="block-21 mb-4 d-flex">
+            <a class="blog-img mr-4" style="background-image: url(@item.NewsImage);"></a>
+            <div class="text">
+                <h3 class="heading"><a href="#">@item.Newstitle</a></h3>
+                <div class="meta">
+                    <div><a href="#"><span class="icon-calendar"></span> @item.NewsDate</a></div>
+
+                </div>
+            </div>
+        </div>
+    }
+
+}

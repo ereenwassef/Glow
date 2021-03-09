@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Glow.Models.clasess>
+
+@foreach (var item in Model)
+{
+    if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+    {
+    <div class="item">
+        <div class="package-membership ftco-animate">
+            <a href="@Url.Action("ClassDetails","clasesses" ,new {id = item.id })" class="img d-flex justify-content-center align-items-center" style="background-image: url(@item.CLass_image);">
+                <div class="text text-center d-flex align-items-end">
+                    <div class="desc">
+                        <h3>@item.Class_Name_ar</h3>
+                        <p>@item.Class_title_ar</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    }
+    else
+    {
+        <div class="item">
+            <div class="package-membership ftco-animate">
+                <a href="@Url.Action("ClassDetails","clasesses" ,new {id = item.id })" class="img d-flex justify-content-center align-items-center" style="background-image: url(@item.CLass_image);">
+                    <div class="text text-center d-flex align-items-end">
+                        <div class="desc">
+                            <h3>@item.Class_Name</h3>
+                            <p>@item.Class_title</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    }
+}

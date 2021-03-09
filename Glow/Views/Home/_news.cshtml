@@ -30,7 +30,7 @@
                         <div><a href="@Url.Action("NewsDetails","News" ,new {id = item.id })">@item.NewsDate</a></div>
                     </div>
                     <h3 class="heading mt-2"><a href="@Url.Action("NewsDetails","News" ,new {id = item.id })">@item.Newsname</a></h3>
-                    <p>@item.Newstitle.Substring(0, 50)</p>
+                    @*<p>@item.Newstitle.Substring(0, 50)</p>*@
                 </div>
             </div>
         </div>

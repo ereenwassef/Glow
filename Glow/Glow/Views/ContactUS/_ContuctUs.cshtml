@@ -1,0 +1,55 @@
+﻿
+
+
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <h2 class="h4">@Glow.Resources.HomeResource.Contact_Information</h2>
+    </div>
+    <div class="col-md-12 mb-3">
+        @if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+        {
+            <p style="font-size:14px"><span>@Glow.Resources.HomeResource.Addresss:</span>@ViewBag.Con_AddressAr </p>
+        }
+        else
+        {
+            <p><span>@Glow.Resources.HomeResource.Addresss:</span>@ViewBag.Con_Address </p>
+        }
+       
+    
+    
+    
+    </div>
+    <div class="col-md-12 mb-3">
+@if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+{
+        <p style="font-size:14px"><span>@Glow.Resources.HomeResource.Phone:</span> <a href="@ViewBag.Con_Phone ">&#x200E;@ViewBag.Con_Phone </a></p>
+}
+else
+{
+    <p><span>@Glow.Resources.HomeResource.Phone:</span> <a href="@ViewBag.Con_Phone ">@ViewBag.Con_Phone </a></p>
+}
+
+      </div>
+    <div class="col-md-12 mb-3">
+@if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+{
+        <p style="font-size:14px"><span>@Glow.Resources.HomeResource.Email:</span> <a href="mailto:@ViewBag.Con_Email">@ViewBag.Con_Email</a></p>
+}
+else
+{
+    <p><span>@Glow.Resources.HomeResource.Email:</span> <a href="mailto:@ViewBag.Con_Email">@ViewBag.Con_Email</a></p>
+}
+
+     </div>
+
+    <div class="col-md-12 mb-3">
+@if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+{
+        <p style="font-size:14px"><span>واتس اب:</span> <a style="direction:ltr">&#x200E; @ViewBag.Con_WhatsApp</a></p>
+}
+else
+{
+    <p><span>WhatsApp:</span> <a> @ViewBag.Con_WhatsApp</a></p>
+}
+    </div>
+</div>

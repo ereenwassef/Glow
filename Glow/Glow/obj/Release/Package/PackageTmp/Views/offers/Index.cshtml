@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Glow.Models.offer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.offername_Ar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offertitle_Ar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offertitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offercontent_Ar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offercontent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offerImage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.offername_Ar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.offername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.offertitle_Ar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.offertitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.offercontent_Ar)
+        </td>
+        <td>
+             @Html.DisplayFor(modelItem => item.offercontent )
+        </td>
+        <td>
+            @if (item.offerImage == null || item.offerImage == " ")
+            {
+                <img id="user_img" height="100" width="100" src="/images/No-Image.png" />
+            }
+            else
+            {
+                <img id="user_img" height="100" width="100" src="@Url.Content(item.offerImage)" />
+            }
+  
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,34 @@
+﻿
+@*@model IEnumerable<Glow.Models.News>*@
+@model Glow.Models.News
+@foreach (var c in Model.newss)
+{
+    if (System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft)
+    {
+<div class="col-md-6 col-lg-3">
+    <div class="package-program ftco-animate">
+        <a href="@Url.Action("NewsDetails","News" ,new {id = c.id })" class="img d-flex justify-content-center align-items-center" style="background-image: url(@c.NewsImage);">
+     
+        </a>
+        <div class="text mt-3">
+            <h3>@c.Newsname_Ar</h3>
+            <p>@c.Newstitle_Ar</p>
+        </div>
+    </div>
+</div>
+    }
+    else
+    {
+        <div class="col-md-6 col-lg-3">
+            <div class="package-program ftco-animate">
+                <a href="@Url.Action("NewsDetails","News" ,new {id = c.id })" class="img d-flex justify-content-center align-items-center" style="background-image: url(@c.NewsImage);">
+                 
+                </a>
+                <div class="text mt-3">
+                    <h3>@c.Newsname</h3>
+                    <p>@c.Newstitle</p>
+                </div>
+            </div>
+        </div>
+    }
+}

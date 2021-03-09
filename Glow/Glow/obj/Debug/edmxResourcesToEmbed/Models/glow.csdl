@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="glowModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="clasess">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Class_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Class_Name_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Class_title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Class_title_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Class_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Class_Content_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CLass_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClassDisplay" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="glowEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="clasesses" EntityType="Self.clasess" />
+    <EntitySet Name="offers" EntityType="glowModel.offer" />
+    <EntitySet Name="News" EntityType="glowModel.News" />
+    <EntitySet Name="Accounts" EntityType="glowModel.Account" />
+    <EntitySet Name="Roles" EntityType="glowModel.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="glowModel.sysdiagram" />
+    <AssociationSet Name="FK_Account_Roles" Association="glowModel.FK_Account_Roles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Account" EntitySet="Accounts" />
+    </AssociationSet>
+    <EntitySet Name="tbl_Users" EntityType="glowModel.tbl_Users" />
+    <EntitySet Name="SLideshows" EntityType="glowModel.SLideshow" />
+    <EntitySet Name="Captions" EntityType="glowModel.Caption" />
+    <EntitySet Name="FitnessProfiles" EntityType="glowModel.FitnessProfile" />
+    <EntitySet Name="Infoes" EntityType="glowModel.Info" />
+    <EntitySet Name="Players" EntityType="glowModel.Player" />
+    <EntitySet Name="PrivateComments" EntityType="glowModel.PrivateComment" />
+    <EntitySet Name="Users" EntityType="glowModel.User" />
+    <AssociationSet Name="FK_PrivateComments_Caption" Association="glowModel.FK_PrivateComments_Caption">
+      <End Role="Caption" EntitySet="Captions" />
+      <End Role="PrivateComment" EntitySet="PrivateComments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FitnessProfile_Users" Association="glowModel.FK_FitnessProfile_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="FitnessProfile" EntitySet="FitnessProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Info_Player" Association="glowModel.FK_Info_Player">
+      <End Role="Player" EntitySet="Players" />
+      <End Role="Info" EntitySet="Infoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PrivateComments_Users" Association="glowModel.FK_PrivateComments_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="PrivateComment" EntitySet="PrivateComments" />
+    </AssociationSet>
+    <EntitySet Name="contacts" EntityType="glowModel.contact" />
+    <EntitySet Name="branches" EntityType="glowModel.branch" />
+  </EntityContainer>
+  <EntityType Name="offer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="offername_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offername" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offertitle_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offertitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offercontent_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offercontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offerImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="offerDisplay" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Newsname_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Newsname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Newstitle_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Newstitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Newscontent_Ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Newscontent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NewsImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NewsDate" Type="DateTime" Precision="0" />
+    <Property Name="NewsDisplay" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Acc_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Acc_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Acc_Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Acc_Role" Type="Int32" />
+    <Property Name="Acc_Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Role" Relationship="glowModel.FK_Account_Roles" FromRole="Account" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Accounts" Relationship="glowModel.FK_Account_Roles" FromRole="Role" ToRole="Account" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Account_Roles">
+    <End Type="glowModel.Role" Role="Role" Multiplicity="0..1" />
+    <End Type="glowModel.Account" Role="Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="Acc_Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tbl_Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SLideshow">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="slide_Txt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_Txt_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_Slogin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_Slogin_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_Content_ar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_Url" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="slide_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SlideDisplay" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Caption">
+    <Key>
+      <PropertyRef Name="Cap_ID" />
+    </Key>
+    <Property Name="Cap_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cap_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PrivateComments" Relationship="glowModel.FK_PrivateComments_Caption" FromRole="Caption" ToRole="PrivateComment" />
+  </EntityType>
+  <EntityType Name="FitnessProfile">
+    <Key>
+      <PropertyRef Name="FP_ID" />
+    </Key>
+    <Property Name="FP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Us_ID" Type="Int32" />
+    <Property Name="MemberShipNo" Type="Int32" />
+    <NavigationProperty Name="User" Relationship="glowModel.FK_FitnessProfile_Users" FromRole="FitnessProfile" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Info">
+    <Key>
+      <PropertyRef Name="Inf_ID" />
+    </Key>
+    <Property Name="Inf_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Inf_MembershipNo" Type="Int32" Nullable="false" />
+    <Property Name="Inf_Startdate" Type="DateTime" Precision="0" />
+    <Property Name="Inf_Enddate" Type="DateTime" Precision="0" />
+    <Property Name="Inf_CaptionName" Type="Int32" />
+    <Property Name="Inf_FrezzDay" Type="Int32" />
+    <Property Name="Inf_Cancel" Type="Boolean" />
+    <Property Name="Inf_Finished" Type="Boolean" />
+    <NavigationProperty Name="Player" Relationship="glowModel.FK_Info_Player" FromRole="Info" ToRole="Player" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="PL_Membership" />
+    </Key>
+    <Property Name="PL_Membership" Type="Int32" Nullable="false" />
+    <Property Name="PL_Mobile" Type="Int32" />
+    <NavigationProperty Name="Infoes" Relationship="glowModel.FK_Info_Player" FromRole="Player" ToRole="Info" />
+  </EntityType>
+  <EntityType Name="PrivateComment">
+    <Key>
+      <PropertyRef Name="PC_ID" />
+    </Key>
+    <Property Name="PC_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PC_CapID" Type="Int32" />
+    <Property Name="PC_Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PC_MembershipNo" Type="Int32" />
+    <NavigationProperty Name="Caption" Relationship="glowModel.FK_PrivateComments_Caption" FromRole="PrivateComment" ToRole="Caption" />
+    <NavigationProperty Name="User" Relationship="glowModel.FK_PrivateComments_Users" FromRole="PrivateComment" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Us_Membership" />
+    </Key>
+    <Property Name="Us_Membership" Type="Int32" Nullable="false" />
+    <Property Name="Us_FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Us_LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Us_UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Us_Mobile" Type="Int32" />
+    <Property Name="Us_Image" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FitnessProfiles" Relationship="glowModel.FK_FitnessProfile_Users" FromRole="User" ToRole="FitnessProfile" />
+    <NavigationProperty Name="PrivateComments" Relationship="glowModel.FK_PrivateComments_Users" FromRole="User" ToRole="PrivateComment" />
+  </EntityType>
+  <Association Name="FK_PrivateComments_Caption">
+    <End Type="glowModel.Caption" Role="Caption" Multiplicity="0..1" />
+    <End Type="glowModel.PrivateComment" Role="PrivateComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Caption">
+        <PropertyRef Name="Cap_ID" />
+      </Principal>
+      <Dependent Role="PrivateComment">
+        <PropertyRef Name="PC_CapID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FitnessProfile_Users">
+    <End Type="glowModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="glowModel.FitnessProfile" Role="FitnessProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Us_Membership" />
+      </Principal>
+      <Dependent Role="FitnessProfile">
+        <PropertyRef Name="MemberShipNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Info_Player">
+    <End Type="glowModel.Player" Role="Player" Multiplicity="1" />
+    <End Type="glowModel.Info" Role="Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="PL_Membership" />
+      </Principal>
+      <Dependent Role="Info">
+        <PropertyRef Name="Inf_MembershipNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PrivateComments_Users">
+    <End Type="glowModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="glowModel.PrivateComment" Role="PrivateComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Us_Membership" />
+      </Principal>
+      <Dependent Role="PrivateComment">
+        <PropertyRef Name="PC_MembershipNo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="contact">
+    <Key>
+      <PropertyRef Name="con_id" />
+    </Key>
+    <Property Name="con_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="con_address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Con_Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Con_WhatsApp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Con_Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="con_addressAR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="branch">
+    <Key>
+      <PropertyRef Name="Branch_id" />
+    </Key>
+    <Property Name="Branch_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Branch_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Branch_location" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Branch_nameAr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Branch_phone1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Branch_phone2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Branch_phone3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Branch_phone4" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Branch_Whatsapp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Branch_Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

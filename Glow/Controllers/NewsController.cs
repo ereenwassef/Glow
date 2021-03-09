@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Glow.Models;
 using System.IO;
+using System.Web.Helpers;
 
 namespace Glow.Controllers
 {
@@ -162,6 +163,8 @@ namespace Glow.Controllers
         }
 
         // GET: News/Edit/5
+        [ValidateInput(false)]
+
         public ActionResult Edit(int? id)
         {
             if (Session["LogedUserName"] != null && Session["RoleID"] != null)
@@ -175,7 +178,8 @@ namespace Glow.Controllers
             {
                 return HttpNotFound();
             }
-            return View(news);
+              
+                return View(news);
         }
             return RedirectToAction("Login", "Accounts");
     }
@@ -184,6 +188,7 @@ namespace Glow.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [ValidateInput(false)]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,Newsname_Ar,Newsname,Newstitle_Ar,Newstitle,Newscontent_Ar,Newscontent,NewsImage,NewsDate,NewsDisplay")] News news, FormCollection fc, HttpPostedFileBase file)
         {

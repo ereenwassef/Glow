@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Glow.Models.branch>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+
+    if (Session["LogedUserName"] != null && Session["RoleID"] != null)
+    {
+
+
+
+        var rolename = @Session["RoleID"].ToString();
+        var user = @Session["LogedUserName"].ToString();
+    }
+   
+}
+@if (Session["LogedUserName"] != null && Session["RoleID"] != null)
+{
+    
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch_location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch_nameAr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch_phone1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch_phone2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch_phone3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch_phone4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch_Whatsapp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch_Email)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch_location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch_nameAr)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch_phone1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch_phone2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch_phone3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch_phone4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch_Whatsapp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Branch_Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Branch_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Branch_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Branch_id })
+        </td>
+    </tr>
+}
+
+</table>
+}

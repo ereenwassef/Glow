@@ -44,12 +44,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 ftco-animate">
-                        <h2 class="img-fluidd_h2" >@Html.DisplayFor(model => model.Newsname)</h2>
-                       
-                            <img src='@Html.DisplayFor(model => model.NewsImage)' alt="" class="img-fluidd">
-                       
+                        <h2 class="img-fluidd_h2">@Html.DisplayFor(model => model.Newsname)</h2>
 
-                        <p class="img-fluidd_p">@Html.DisplayFor(model => model.Newscontent)</p>
+                        <img src='@Html.DisplayFor(model => model.NewsImage)' alt="" class="img-fluidd">
+
+
+                        @*<p class="img-fluidd_p">@Html.DisplayFor(model => model.Newscontent)</p>*@
+                        <p class="img-fluidd_p">@Html.Raw(Model.Newscontent.Replace("\r\n", "<br />"))</p>
+
 
 
 

@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout_Admin.cshtml";
+    var rolename = @Session["RoleID"].ToString();
+    var user = @Session["LogedUserName"].ToString();
+}
+@if (Session["LogedUserName"] != null && Session["RoleID"] != null)
+{
+<div class="col-md-12 text-center">
+    <h2>Welcome @user <br /> Your Role is :@rolename </h2>
+    <p>@DateTime.Now.ToShortDateString()</p>
+</div>
+}

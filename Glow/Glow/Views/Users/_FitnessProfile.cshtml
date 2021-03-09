@@ -1,0 +1,20 @@
+﻿@model Glow.Models.FitnessProfile
+
+<div class="form-horizontal">
+    <h4>Fitness Profile</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.MemberShipNo)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FP_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.FP_ID, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DisplayFor(model => model.MemberShipNo, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+
+
+
+</div>
